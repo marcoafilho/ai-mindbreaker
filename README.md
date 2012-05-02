@@ -1,4 +1,4 @@
-A* Mindbreaker [![Build Status](https://secure.travis-ci.org/marcoafilho/ai-mindbreaker.png?branch=master)][travis]
+A* Mindbreaker ![Build Status][travis_logo]
 ==============
 This application is designed to solve the slide puzzle based on 3x3 matrices as shown in the picture below:
 
@@ -6,6 +6,7 @@ This application is designed to solve the slide puzzle based on 3x3 matrices as 
 
 The algorithm used to retrieve the solution is the A* search method.
 
+[travis_logo]:  https://secure.travis-ci.org/marcoafilho/ai-mindbreaker.png?branch=master
 [puzzle_image]: https://github.com/marcoafilho/ai-mindbreaker/raw/master/resources/SLIDE.png "3x3 sliding puzzle"
 
 Configuration

@@ -1,7 +1,7 @@
 A* Mindbreaker [![Build Status][travis_logo]](http://travis-ci.org/marcoafilho/ai-mindbreaker)
 ==============
 
-> Intelligence is what you use when you don't know what to do.
+> Intelligence is what you use when you don't know what to do. <br>
 > -- Jean Piaget
 
 This application is designed to solve the slide puzzle based on 3x3 matrices as shown in the picture below:

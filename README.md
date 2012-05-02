@@ -1,4 +1,4 @@
-A* Mindbreaker ![Build Status][travis_logo]
+A* Mindbreaker [![Build Status][travis_logo]](http://travis-ci.org/marcoafilho/ai-mindbreaker)
 ==============
 This application is designed to solve the slide puzzle based on 3x3 matrices as shown in the picture below:
 

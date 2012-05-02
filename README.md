@@ -20,6 +20,10 @@ If you want to run the tests used by the application, install Bundler first
 	$ gem install bundler
 	$ bundle install
 	
+To run the tests just execute on the project root. This command will run both unit and acceptance tests.
+
+	$ bundle exec rake
+
 Usage
 -----
 

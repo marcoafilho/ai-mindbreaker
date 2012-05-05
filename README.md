@@ -1,8 +1,11 @@
-A* Mindbreaker [![Build Status][travis_logo]](http://travis-ci.org/marcoafilho/ai-mindbreaker)
+AI Mindbreaker [![Build Status][travis_logo]](http://travis-ci.org/marcoafilho/ai-mindbreaker)
 ==============
 
 > Intelligence is what you use when you don't know what to do. <br>
 > -- Jean Piaget
+
+About
+-----
 
 This application is designed to solve the slide puzzle based on 3x3 matrices as shown in the picture below:
 
@@ -12,6 +15,9 @@ The algorithm used to retrieve the solution is the A* search method.
 
 [travis_logo]:  https://secure.travis-ci.org/marcoafilho/ai-mindbreaker.png?branch=master
 [puzzle_image]: https://github.com/marcoafilho/ai-mindbreaker/raw/master/resources/SLIDE.png "3x3 sliding puzzle"
+
+Installation
+------------
 
 Configuration
 -------------

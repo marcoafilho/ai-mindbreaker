@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+
+# Handle the args here
+# ARGV.each do |arg|
+#   puts arg
+# end

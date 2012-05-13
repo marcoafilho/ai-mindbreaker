@@ -12,6 +12,6 @@ Scenario Outline:
 Scenarios:
 	| problem       | configuration | goal      |
 	| SlidingPuzzle | 283164705 		| 123804765	|
-	| SlidingPuzzle | 473156208 		| 123456780 |
-	| SlidingPuzzle | 183065724 		| 123456780 |
-	| SlidingPuzzle | 708546312 		| 123456780 |
+	| SlidingPuzzle | 473156208 		| 012345678 |
+	| SlidingPuzzle | 183065724 		| 012345678 |
+	| SlidingPuzzle | 708546312 		| 012345678 |

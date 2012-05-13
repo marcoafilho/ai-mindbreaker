@@ -1,7 +1,7 @@
 module Utils  
   module String
     def to_sp
-      self.chop.split('').collect(&:to_i)
+      self.chomp.split('').map(&:to_i)
     end
   end
 end

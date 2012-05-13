@@ -1,5 +1,12 @@
 #!/usr/bin/env ruby
+$LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
+require "mindbreaker"
 
+sliding_puzzle = SlidingPuzzle.new(STDOUT)
+sliding_puzzle.greet
+initial_configuration = gets.to_sp
+
+puts initial_configuration.inspect
 # Handle the args here
 # ARGV.each do |arg|
 #   puts arg

@@ -11,7 +11,7 @@ Scenario Outline:
 	
 Scenarios:
 	| problem       | configuration | goal      |
-	| SlidingPuzzle | 2831647_5 		| 1238_4765	|
-	| SlidingPuzzle | 4731562_8 		| 12345678_ |
-	| SlidingPuzzle | 183_65724 		| 12345678_ |	
-	| SlidingPuzzle | 7_8546312 		| 12345678_ |	
+	| SlidingPuzzle | 283164705 		| 123804765	|
+	| SlidingPuzzle | 473156208 		| 123456780 |
+	| SlidingPuzzle | 183065724 		| 123456780 |
+	| SlidingPuzzle | 708546312 		| 123456780 |

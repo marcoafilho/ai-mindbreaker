@@ -30,10 +30,12 @@ Dentre os problemas a serem resolvidos estão:
 		deslizando as peças para o espaço em branco.
 		<br /><br />
 		A figura abaixo é um exemplo de configuração inicial e sua respectiva solução:
-		<br />
-		<img src="https://github.com/marcoafilho/ai-mindbreaker/raw/master/resources/SLIDE.png" alt="3x3 sliding puzzle" />
-		<img src="https://github.com/marcoafilho/ai-mindbreaker/raw/master/resources/SLIDE_SOLVED.png" alt="3x3 sliding puzzle" />
-		<br />
+		<br /><br />
+		<center>
+			<img src="https://github.com/marcoafilho/ai-mindbreaker/raw/master/resources/SLIDE.png" alt="3x3 sliding puzzle" style="margin-right:10px;" />
+			<img src="https://github.com/marcoafilho/ai-mindbreaker/raw/master/resources/SLIDE_SOLVED.png" alt="3x3 sliding puzzle" style="margin-left:10px;" />
+		</center>
+		<br /><br />
 		Para encontrar soluções para configurações iniciais, usaremos o algoritmo A*.
 	</dd>
 </dl>

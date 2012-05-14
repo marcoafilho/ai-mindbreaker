@@ -25,18 +25,21 @@ Dentre os problemas a serem resolvidos estão:
 	</dd>
 	<dt>Quebra-cabeça com peças deslizantes</dt>
 	<dd>
-		Esse problema amostra trata-se de uma matriz 3x3 com 8 peças e um espaço em branco. As peças são inicialmente 
-		embaralhadas, criando uma configuração aleatória. Dessa forma, um agente deve chegar a um objetivo, geralmente 
-		a ordenação numérica das peças, através do deslizamento das peças para o espaço em branco.
-		<br /><br />
-		A figura abaixo é um exemplo de configuração inicial e sua respectiva solução:
-		<br /><br />
-		<p style="vertical-align:middle;">
-			<img src="https://github.com/marcoafilho/ai-mindbreaker/raw/master/resources/SLIDE.png" alt="3x3 sliding puzzle" /> 
-			<img src="https://github.com/marcoafilho/ai-mindbreaker/raw/master/resources/SLIDE_SOLVED.png" alt="3x3 sliding puzzle" />			
+		<p>
+			Esse problema amostra trata-se de uma matriz 3x3 com 8 peças e um espaço em branco. As peças são inicialmente 
+			embaralhadas, criando uma configuração aleatória. Dessa forma, um agente deve chegar a um objetivo, geralmente 
+			a ordenação numérica das peças, através do deslizamento das peças para o espaço em branco.			
 		</p>
-		<br /><br />
-		Para encontrar soluções para configurações iniciais, usaremos o algoritmo A*.
+		<p>
+			A figura abaixo é um exemplo de configuração inicial e sua respectiva solução:			
+		</p>
+		<p>
+			<img src="https://github.com/marcoafilho/ai-mindbreaker/raw/master/resources/SLIDE.png" alt="3x3 sliding puzzle" /> 
+			-><img src="https://github.com/marcoafilho/ai-mindbreaker/raw/master/resources/SLIDE_SOLVED.png" alt="3x3 sliding puzzle" /><-
+		</p>
+		<p>
+			Para encontrar soluções para configurações iniciais, usaremos o algoritmo A*.
+		</p>
 	</dd>
 </dl>
 

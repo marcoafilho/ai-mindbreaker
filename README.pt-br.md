@@ -35,7 +35,8 @@ Dentre os problemas a serem resolvidos estão:
 		</p>
 		<p>
 			<img src="https://github.com/marcoafilho/ai-mindbreaker/raw/master/resources/SLIDE.png" alt="3x3 sliding puzzle" /> 
-			-><img src="https://github.com/marcoafilho/ai-mindbreaker/raw/master/resources/SLIDE_SOLVED.png" alt="3x3 sliding puzzle" /><-
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<img src="https://github.com/marcoafilho/ai-mindbreaker/raw/master/resources/SLIDE_SOLVED.png" alt="3x3 sliding puzzle" />
 		</p>
 		<p>
 			Para encontrar soluções para configurações iniciais, usaremos o algoritmo A*.

@@ -39,5 +39,33 @@ module Mindbreaker
         end
       end
     end
+    
+    describe "#heuristic" do
+      context "with no configuration" do
+        it "raises a missing configuration error" do
+          lambda{ sliding_puzzle.define_goal }.should raise_error(Problem::MissingConfigurationError)
+        end
+      end
+      
+      context "with a linear goal" do
+        before(:each) do
+          sliding_puzzle.configuration = [4, 7, 3, 1, 5, 6, 2, 0, 8]
+        end
+        
+        it "has a heuristic value" do
+          sliding_puzzle.heuristic.should == 20
+        end
+      end
+      
+      context "with a circular goal" do
+        before(:each) do
+          sliding_puzzle.configuration = [2, 8, 3, 1, 6, 4, 7, 0, 5]
+        end
+        
+        it "has a heuristic value" do
+          sliding_puzzle.heuristic.should == 6
+        end
+      end
+    end
   end
 end

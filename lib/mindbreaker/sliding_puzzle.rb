@@ -1,16 +1,22 @@
 module Mindbreaker
   class SlidingPuzzle < Problem
-    def define_goal
-      raise MissingConfigurationError unless @configuration
-      @goal = self.class.find_goal(@configuration)
-    end
-    
     def self.find_goal(configuration)
       if total_lower_elements(configuration) % 2 == 0
         [0, 1, 2, 3, 4, 5, 6, 7, 8]
       else
         [1, 2, 3, 8, 0, 4, 7, 6, 5]
       end
+    end
+    
+    def define_goal
+      raise MissingConfigurationError unless @configuration
+      @goal = self.class.find_goal(@configuration)
+    end
+    
+    def heuristic
+      @configuration.map do |number|
+        @configuration.index(number) == @goal.index(number) ? 0 : 1
+      end.inject(:+)
     end
     
     private

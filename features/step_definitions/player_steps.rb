@@ -35,3 +35,7 @@ end
 Then /^my goal should be "([^"]*)"$/ do |goal|
   @sliding_puzzle.goal.should == goal.to_sp
 end
+
+Then /^my heuristic value should be "([^"]*)"$/ do |heuristic|
+  @sliding_puzzle.heuristic.should == heuristic.to_i
+end

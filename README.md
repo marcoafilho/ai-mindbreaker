@@ -7,6 +7,8 @@ AI Mindbreaker [![Build Status][travis_logo]](http://travis-ci.org/marcoafilho/a
 About
 -----
 
+This guide is also available in [Portuguese][readme_pt].
+
 This application is designed to solve the slide puzzle based on 3x3 matrices as shown in the picture below:
 
 ![3x3 Slide puzzle][puzzle_image]
@@ -15,6 +17,8 @@ The algorithm used to retrieve the solution is the A* search method.
 
 [travis_logo]:  https://secure.travis-ci.org/marcoafilho/ai-mindbreaker.png?branch=master
 [puzzle_image]: https://github.com/marcoafilho/ai-mindbreaker/raw/master/resources/SLIDE.png "3x3 sliding puzzle"
+
+[readme_pt]: https://github.com/marcoafilho/ai-mindbreaker/blob/master/README.pt-br.md
 
 Installation
 ------------

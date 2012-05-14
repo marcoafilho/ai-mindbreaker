@@ -15,7 +15,11 @@ module Mindbreaker
     
     def heuristic
       @configuration.map do |number|
-        @configuration.index(number) == @goal.index(number) ? 0 : 1
+        if @configuration.index(number) == @goal.index(number) 
+          0
+        else
+          1
+        end
       end.inject(:+)
     end
     

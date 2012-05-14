@@ -12,17 +12,18 @@ O AI Mindbreaker tem como objetivo resolver alguns já conhecidos [problemas amo
 Dentre os problemas a serem resolvidos estão:
 
 * Problema das 8 damas;
-* Sliding puzzle (quebra-cabeça de deslize);
+* Quebra-cabeça com peças deslizantes;
 
 <dl>
 	<dt>Problema das 8 damas</dt>
 	<dd>
 		
 	</dd>
-	<dt>Sliding puzzle</dt>
+	<dt>Quebra-cabeça com peças deslizantes</dt>
 	<dd>
+		Esse problema amostra trata-se de uma matriz 3x3 com 8 peças e um espaço em branco. As peças são deslizadas para o 
 		A figura abaixo é um exemplo de configuração inicial para o quebra-cabeça de deslize:
-		
+		<img src="https://github.com/marcoafilho/ai-mindbreaker/raw/master/resources/SLIDE.png" alt="3x3 sliding puzzle" />
 		![3x3 Slide puzzle][puzzle_image]
 
 		Para solucionar o problema será usado o algoritmo A*.
@@ -30,7 +31,7 @@ Dentre os problemas a serem resolvidos estão:
 </dl>
 
 [travis_logo]:  https://secure.travis-ci.org/marcoafilho/ai-mindbreaker.png?branch=master
-[puzzle_image]: https://github.com/marcoafilho/ai-mindbreaker/raw/master/resources/SLIDE.png "3x3 sliding puzzle"
+[puzzle_image]: 
 
 Instalação
 ----------

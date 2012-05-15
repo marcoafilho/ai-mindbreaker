@@ -15,5 +15,5 @@ Scenarios:
  | SlidingPuzzle | 012345678     | 0         |
  | SlidingPuzzle | 473156208     | 20        |
  | SlidingPuzzle | 183065724     | 16        |
- | SlidingPuzzle | 708546312     | 19        |
+ | SlidingPuzzle | 708546312     | 16        |
 	

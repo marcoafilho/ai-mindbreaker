@@ -15,11 +15,7 @@ module Mindbreaker
     
     def heuristic
       @configuration.map do |number|
-        if @configuration.index(number) == @goal.index(number) 
-          0
-        else
-          1
-        end
+        horizontal_moves(number) + vertical_moves(number)
       end.inject(:+)
     end
     
@@ -38,6 +34,14 @@ module Mindbreaker
 
     def self.remaining_configuration(number, configuration)
       configuration[configuration.find_index(number)..(configuration.length-1)]
-    end    
+    end
+    
+    def vertical_moves(number)
+      (@configuration.index(number) % 3 - @goal.index(number) % 3).abs
+    end
+    
+    def horizontal_moves(number)
+      (@configuration.index(number)/3 - @goal.index(number)/3).abs
+    end   
   end
 end

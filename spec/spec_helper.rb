@@ -1,1 +1,1 @@
-require "mindbreaker"
+require "mind_breaker"

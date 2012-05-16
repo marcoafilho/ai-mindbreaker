@@ -7,7 +7,7 @@ I should be able to submit a configuration
 Scenario Outline:
 	Given I am running "<problem>"
 	When I submit a configuration "<configuration>"
-	Then my goal should be "<goal>"
+	Then my agent goal should be "<goal>"
 	
 Scenarios:
 	| problem       | configuration | goal      |

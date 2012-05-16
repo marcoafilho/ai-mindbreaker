@@ -16,12 +16,12 @@ Given /^I am not running any problem yet$/ do
 end
 
 Given /^I am running "([^"]*)"$/ do |problem|
-  @sliding_puzzle = Mindbreaker::SlidingPuzzle.new(output)
+  @problem = Mindbreaker::App.new(output, problem)
 end
 
 When /^I start to run "([^"]*)"$/ do |problem|
-  @sliding_puzzle = Mindbreaker::SlidingPuzzle.new(output)
-  @sliding_puzzle.greet
+  @problem = Mindbreaker::App.new(output, problem)
+  @problem.greet
 end
 
 Then /^I should see "([^"]*)"$/ do |message|

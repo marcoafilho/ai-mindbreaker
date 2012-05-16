@@ -1,3 +1,15 @@
+class Input  
+  attr_writer :message
+    
+  def gets
+    @message
+  end
+end
+
+def input
+  @input ||= Input.new
+end
+
 class Output
   def messages
     @messages ||= []
@@ -16,11 +28,14 @@ Given /^I am not running any problem yet$/ do
 end
 
 Given /^I am running "([^"]*)"$/ do |problem|
-  @problem = Mindbreaker::App.new(output, problem)
+  @problem = MindBreaker::App.new(input, output, problem)
+  @problem.start
+  @problem.greet
 end
 
 When /^I start to run "([^"]*)"$/ do |problem|
-  @problem = Mindbreaker::App.new(output, problem)
+  @problem = MindBreaker::App.new(input, output, problem)
+  @problem.start
   @problem.greet
 end
 

@@ -1,0 +1,8 @@
+require "utils"
+require "mind_breaker/agent"
+require "mind_breaker/app"
+require "mind_breaker/problem"
+require "mind_breaker/sliding_puzzle"
+require "mind_breaker/sliding_puzzle_agent"
+require "mind_breaker/tree"
+require "mind_breaker/tree/node"

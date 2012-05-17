@@ -1,12 +1,14 @@
 #!/usr/bin/env ruby
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
-require "mindbreaker"
+require "mind_breaker"
 
-sliding_puzzle = SlidingPuzzle.new(STDOUT)
-sliding_puzzle.greet
-initial_configuration = gets.to_sp
+app = MindBreaker::App.new(STDIN, STDOUT, "SlidingPuzzle")
+app.start
+app.greet
+app.create_agent
 
-puts initial_configuration.inspect
+puts app.agent.goal.inspect
+puts app.agent.inspect
 # Handle the args here
 # ARGV.each do |arg|
 #   puts arg

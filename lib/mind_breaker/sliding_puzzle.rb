@@ -2,12 +2,25 @@ module MindBreaker
   class SlidingPuzzle < Problem    
     ACTIONS = [:left, :right, :up, :down]
     
-    def heuristic(state = nil)
-      (state || @state).map do |number|
-        horizontal_moves(number) + vertical_moves(number)
-      end.inject(:+)
+    def find(number, direction)
+      case(direction)
+      when :row then state.index(number) / 3
+      when :column then state.index(number) % 3
+      end
     end
     
+    def zero_position(state)
+      state.index(0)
+    end
+    
+    def total_lower_blocks
+      state.map{ |number| count_lower_blocks(number) }.sum
+    end
+    
+    def count_lower_blocks(number)
+      remaining_blocks(number).map{ |cmp_number| (number > cmp_number && cmp_number != 0) ? 1 : 0 }.sum
+    end
+        
     def find_solution
       @tree = Tree.new(state: @state, function: heuristic(state))
       root = @tree.root
@@ -46,30 +59,10 @@ module MindBreaker
       
       state
     end
-    
-    def zero_position(state)
-      state.index(0)
-    end
-    
-    def total_lower_blocks
-      state.map{ |number| count_lower_blocks(number) }.sum
-    end
-    
-    def count_lower_blocks(number)
-      remaining_blocks(number).map{ |cmp_number| (number > cmp_number && cmp_number != 0) ? 1 : 0 }.sum
-    end
-            
+                    
     private
     def remaining_blocks(number)
       state[state.find_index(number)..(state.length-1)]
-    end
-    
-    def vertical_moves(number)
-      (@state.index(number) % 3 - @goal.index(number) % 3).abs
-    end
-    
-    def horizontal_moves(number)
-      (@state.index(number)/3 - @goal.index(number)/3).abs
-    end   
+    end    
   end
 end

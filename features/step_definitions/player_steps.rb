@@ -53,7 +53,7 @@ Then /^I should have an agent of "([^"]*)" type$/ do |agent_class|
 end
 
 Then /^its goal should be "([^"]*)"$/ do |goal|
-  @agent.goal.should == goal.to_sp
+  @agent.goal.state.should == goal.to_sp
 end
 
 Then /^my heuristic value should be "([^"]*)"$/ do |heuristic|

@@ -32,7 +32,6 @@ module MindBreaker
       
       describe "#create_agent" do
         it "returns a new agent" do
-          #input.should_receive(:gets).and_return("012345678")
           sliding_puzzle.create_agent.should be_an_instance_of(SlidingPuzzleAgent)
         end
       end

@@ -18,11 +18,22 @@ module MindBreaker
     end
     
     def gets_configuration
-      input.gets.to_sp
+      input.gets.send(format_method)
+    end
+    
+    def gets_max_iterations
+      input.gets.chomp.to_i
     end
     
     def create_agent
-      @agent = agent_class.new(problem_class.new(gets_configuration))
+      @agent = case problem
+      when "SlidingPuzzle" then agent_class.new(new_problem)
+      when "EightQueens"   then agent_class.new(4.times.map{ new_problem }, gets_max_iterations)
+      end
+    end
+    
+    def new_problem
+      problem_class.new(gets_configuration)
     end
     
     def agent_class
@@ -31,6 +42,11 @@ module MindBreaker
     
     def problem_class
       problem.constantize(MindBreaker)
+    end
+    
+    private    
+    def format_method
+      "to_#{problem.scan(/[A-Z]/).join.downcase}".to_sym
     end
   end
 end

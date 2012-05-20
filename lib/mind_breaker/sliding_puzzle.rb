@@ -1,7 +1,5 @@
 module MindBreaker
   class SlidingPuzzle < Problem    
-    ACTIONS = [:left, :right, :up, :down]
-    
     def find(number, direction)
       case(direction)
       when :row then state.index(number) / 3
@@ -9,60 +7,41 @@ module MindBreaker
       end
     end
     
-    def zero_position(state)
-      state.index(0)
+    def zero_position
+      @state.index(0)
     end
     
     def total_lower_blocks
-      state.map{ |number| count_lower_blocks(number) }.sum
+      @state.map{ |number| count_lower_blocks(number) }.sum
     end
     
     def count_lower_blocks(number)
       remaining_blocks(number).map{ |cmp_number| (number > cmp_number && cmp_number != 0) ? 1 : 0 }.sum
     end
-        
-    def find_solution
-      @tree = Tree.new(state: @state, function: heuristic(state))
-      root = @tree.root
-      actions = possible_actions(@state.index(0))
-      puts root.inspect
-      actions.each do |action|
-        root.add(state: move(action, @state), function: 1 + heuristic(move(action, @state)))
-      end
-    end
-    
-    def possible_actions(zero_position)
-      actions = ACTIONS.dup
-      
-      case(zero_position/3)
-      when 0 then actions.delete(:up)
-      when 2 then actions.delete(:down)
-      end
-      
-      case(zero_position % 3)
-      when 0 then actions.delete(:left)
-      when 2 then actions.delete(:right)
-      end
-      
-      actions
-    end
-    
-    def move(action, state)
-      state = @state.dup
-
-      case action
-      when :up then state.swap!(zero_position(state), zero_position(state) - 3)
-      when :down then state.swap!(zero_position(state), zero_position(state) + 1)
-      when :left then state.swap!(zero_position(state), zero_position(state) - 1)
-      when :right then state.swap!(zero_position(state), zero_position(state) + 1)
-      end
-      
-      state
+            
+    def possible_actions(index = @state.index(0))
+      horizontal_actions(index) + vertical_actions(index)
     end
                     
     private
     def remaining_blocks(number)
-      state[state.find_index(number)..(state.length-1)]
+      @state[@state.find_index(number)..(@state.length-1)]
+    end
+    
+    def horizontal_actions(index)
+      case(index % 3)
+      when 0 then [:right]
+      when 1 then [:left, :right]
+      when 2 then [:left]
+      end
+    end
+    
+    def vertical_actions(index)
+      case(index/3)
+      when 0 then [:down]
+      when 1 then [:up, :down]
+      when 2 then [:up]
+      end
     end    
   end
 end

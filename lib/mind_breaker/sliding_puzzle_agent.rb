@@ -5,6 +5,7 @@ module MindBreaker
     def initialize(sliding_puzzle)
       @tree = Tree.new(root: { problem: sliding_puzzle })
       @current_node = @tree.root
+      @current_node.function = heuristic
     end
     
     def find_goal
@@ -15,18 +16,52 @@ module MindBreaker
       end
     end
     
+    def cost(node)
+      node.depth + heuristic(node.problem.state)
+    end
+    
     def goal
       @goal ||= find_goal
     end
     
-    def heuristic
-      sense.state.map{ |number| count_moves(number) }.sum
+    def heuristic(state = percept.state)
+      state.map{ |number| count_moves(number, state) }.sum
     end
     
     def search(state=goal.state)
-      if sense.state == goal.state
-        sense
+      while @current_node.problem.state != goal.state
+        expand
+        @current_node = best_choice
       end
+      puts "goal state: #{goal.state}"
+      tree.show
+      @current_node
+    end
+    
+    def expand
+      current_node = @current_node
+      percept.possible_actions.each do |action|
+        @current_node.add(problem: SlidingPuzzle.new(act(action)))
+        current_node = @current_node.children.last
+        current_node.function = cost(current_node)
+      end
+    end
+    
+    def best_choice
+      @current_node.children.detect{ |node| node.function == @current_node.cheapest }
+    end
+    
+    def act(value)
+      state = percept.state.dup
+
+      case value
+      when :up then state.swap!(percept.zero_position, percept.zero_position - 3)
+      when :down then state.swap!(percept.zero_position, percept.zero_position + 3)
+      when :left then state.swap!(percept.zero_position, percept.zero_position - 1)
+      when :right then state.swap!(percept.zero_position, percept.zero_position + 1)
+      end
+      
+      state
     end
             
     private
@@ -34,20 +69,20 @@ module MindBreaker
       tree.root.problem
     end
     
-    def sense
-      current_node.problem
+    def percept
+      @current_node.problem
     end
 
-    def count_moves(number)
-      count_row_moves(number) + count_column_moves(number)
+    def count_moves(number, state)
+      count_row_moves(number, state) + count_column_moves(number, state)
     end
 
-    def count_column_moves(number)
-      (sense.find(number, :column) - goal.find(number, :column)).abs
+    def count_column_moves(number, state)
+      (SlidingPuzzle.new(state).find(number, :column) - goal.find(number, :column)).abs
     end
     
-    def count_row_moves(number)
-      (sense.find(number, :row) - goal.find(number, :row)).abs
-    end    
+    def count_row_moves(number, state)
+      (SlidingPuzzle.new(state).find(number, :row) - goal.find(number, :row)).abs
+    end
   end
 end

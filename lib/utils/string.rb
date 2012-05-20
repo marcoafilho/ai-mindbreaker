@@ -7,6 +7,10 @@ module Utils
     def to_sp
       self.chomp.split('').map(&:to_i)
     end
+    
+    def to_eq
+      self.chomp.split('').map(&:to_i)
+    end
   end
 end
 

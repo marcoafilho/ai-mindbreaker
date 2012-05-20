@@ -1,21 +1,22 @@
 module MindBreaker
   class Tree
     class Node
-      attr_accessor :children, :parent
-      attr_accessor :problem
+      attr_reader :children, :parent, :depth
+      attr_accessor :problem, :function
       
       def initialize(attrs)
-        @children = attrs[:children]
+        @children = attrs[:children] || []
+        @depth = attrs[:depth] || 0
         @parent   = attrs[:parent]
         @problem  = attrs[:problem]
       end
-
-      def create_method(name, &block)
-        self.class.send(:define_method, name, &block)
-      end
             
       def add(attrs)
-        children.push Node.new(attrs.merge(parent: self))
+        @children.push Node.new(attrs.merge(parent: self, depth: @depth + 1))
+      end
+      
+      def cheapest
+        @children.map(&:function).min
       end
     end
   end

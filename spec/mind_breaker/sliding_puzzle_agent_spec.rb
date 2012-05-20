@@ -47,8 +47,8 @@ module MindBreaker
         let(:sliding_puzzle) { SlidingPuzzle.new([0, 1, 2, 3, 4, 5, 6, 7, 8])}
         let(:sliding_puzzle_agent) { SlidingPuzzleAgent.new(sliding_puzzle) }
         
-        it "has a heuristic value" do
-          sliding_puzzle_agent.search.should == sliding_puzzle
+        it "returns the same state" do
+          sliding_puzzle_agent.search.problem.state.should == sliding_puzzle.state
         end
       end
       
@@ -56,17 +56,37 @@ module MindBreaker
         let(:sliding_puzzle) { SlidingPuzzle.new([1, 2, 3, 8, 0, 4, 7, 6, 5])}
         let(:sliding_puzzle_agent) { SlidingPuzzleAgent.new(sliding_puzzle) }
         
-        it "has a heuristic value" do
-          sliding_puzzle_agent.search.should == sliding_puzzle
+        it "returns the same state" do
+          sliding_puzzle_agent.search.problem.state.should == sliding_puzzle.state
         end
       end
       
-      context "with an even initial state" do
-        pending "Case needs to be implemented"
-      end
+      # context "with an even initial state" do
+      #   let(:sliding_puzzle) { SlidingPuzzle.new([4, 7, 3, 1, 5, 6, 2, 0, 8])}
+      #   let(:sliding_puzzle_agent) { SlidingPuzzleAgent.new(sliding_puzzle) }
+      #   
+      #   it "returns the goal state" do
+      #     sliding_puzzle_agent.search.problem.state.should == sliding_puzzle_agent.goal.state
+      #   end
+      #   
+      #   it "has current node as goal state" do
+      #     sliding_puzzle_agent.search
+      #     sliding_puzzle_agent.current_node.problem.state.should == sliding_puzzle_agent.goal.state
+      #   end
+      # end
       
       context "with an odd initial state" do
-        pending "Case needs to be implemented"
+        let(:sliding_puzzle) { SlidingPuzzle.new([2, 8, 3, 1, 6, 4, 7, 0, 5]) }
+        let(:sliding_puzzle_agent) { SlidingPuzzleAgent.new(sliding_puzzle) }
+        
+        it "returns the goal state" do
+          sliding_puzzle_agent.search.problem.state.should == sliding_puzzle_agent.goal.state
+        end
+        
+        it "has current node as goal state" do
+          sliding_puzzle_agent.search
+          sliding_puzzle_agent.current_node.problem.state.should == sliding_puzzle_agent.goal.state
+        end
       end
     end
   end

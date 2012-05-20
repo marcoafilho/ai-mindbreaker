@@ -1,11 +1,12 @@
 module MindBreaker
   class SlidingPuzzleAgent < Agent
-    attr_accessor :tree, :current_node
+    attr_accessor :tree, :current_node, :frontiers, :states_explored
         
     def initialize(sliding_puzzle)
       @tree = Tree.new(root: { problem: sliding_puzzle })
       @current_node = @tree.root
       @current_node.function = heuristic
+      @states_explored = []
     end
     
     def find_goal
@@ -29,28 +30,36 @@ module MindBreaker
     end
     
     def search(state=goal.state)
+      @frontiers = [@current_node]
       while @current_node.problem.state != goal.state
-        expand
-        @current_node = best_choice
+        @frontiers += expand
+        @current_node = @frontiers.delete(best_choice)
+        @cheapest = nil
       end
-      puts "goal state: #{goal.state}"
-      tree.show
       @current_node
     end
     
     def expand
       current_node = @current_node
       percept.possible_actions.each do |action|
-        @current_node.add(problem: SlidingPuzzle.new(act(action)))
-        current_node = @current_node.children.last
-        current_node.function = cost(current_node)
+        if !@states_explored.include?(act(action))
+          @current_node.add(problem: SlidingPuzzle.new(act(action)))
+          current_node = @current_node.children.last
+          current_node.function = cost(current_node)
+        end
       end
+      @states_explored << @current_node.problem.state
+      @current_node.children
     end
     
     def best_choice
-      @current_node.children.detect{ |node| node.function == @current_node.cheapest }
+      @frontiers.detect{ |node| node.function == cheapest } || @current_node
     end
     
+    def cheapest
+      @cheapest ||= @frontiers.map(&:function).min
+    end
+        
     def act(value)
       state = percept.state.dup
 

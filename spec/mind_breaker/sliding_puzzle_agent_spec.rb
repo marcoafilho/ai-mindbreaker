@@ -61,20 +61,34 @@ module MindBreaker
         end
       end
       
-      # context "with an even initial state" do
-      #   let(:sliding_puzzle) { SlidingPuzzle.new([4, 7, 3, 1, 5, 6, 2, 0, 8])}
-      #   let(:sliding_puzzle_agent) { SlidingPuzzleAgent.new(sliding_puzzle) }
-      #   
-      #   it "returns the goal state" do
-      #     sliding_puzzle_agent.search.problem.state.should == sliding_puzzle_agent.goal.state
-      #   end
-      #   
-      #   it "has current node as goal state" do
-      #     sliding_puzzle_agent.search
-      #     sliding_puzzle_agent.current_node.problem.state.should == sliding_puzzle_agent.goal.state
-      #   end
-      # end
+      context "with an even initial state ([7, 0, 8, 5, 4, 6, 3, 1, 2])" do
+        let(:sliding_puzzle) { SlidingPuzzle.new([7, 0, 8, 5, 4, 6, 3, 1, 2]) }
+        let(:sliding_puzzle_agent) { SlidingPuzzleAgent.new(sliding_puzzle) }
+        
+        it "returns the goal state" do
+          sliding_puzzle_agent.search.problem.state.should == sliding_puzzle_agent.goal.state
+        end
+        
+        it "has current node as goal state" do
+          sliding_puzzle_agent.search
+          sliding_puzzle_agent.current_node.problem.state.should == sliding_puzzle_agent.goal.state
+        end
+      end
       
+      context "with another even initial state ([4, 7, 3, 1, 5, 6, 2, 0, 8])" do
+        let(:sliding_puzzle) { SlidingPuzzle.new([4, 7, 3, 1, 5, 6, 2, 0, 8]) }
+        let(:sliding_puzzle_agent) { SlidingPuzzleAgent.new(sliding_puzzle) }
+        
+        it "returns the goal state" do
+          sliding_puzzle_agent.search.problem.state.should == sliding_puzzle_agent.goal.state
+        end
+        
+        it "has current node as goal state" do
+          sliding_puzzle_agent.search
+          sliding_puzzle_agent.current_node.problem.state.should == sliding_puzzle_agent.goal.state
+        end
+      end
+            
       context "with an odd initial state" do
         let(:sliding_puzzle) { SlidingPuzzle.new([2, 8, 3, 1, 6, 4, 7, 0, 5]) }
         let(:sliding_puzzle_agent) { SlidingPuzzleAgent.new(sliding_puzzle) }

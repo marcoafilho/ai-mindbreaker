@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+$LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
+require "mind_breaker"
+
+# Handle the args here
+# ARGV.each do |arg|
+#   puts arg
+# end
+
+app = MindBreaker::App.new(STDIN, STDOUT, "EightQueens")
+app.start
+app.greet
+app.create_agent
+
+app.agent.search

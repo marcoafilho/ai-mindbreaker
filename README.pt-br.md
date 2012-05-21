@@ -222,7 +222,7 @@ Essa é uma representação da matriz onde cada grupo de três dígitos represen
 
 A saída mostra todos os passos executados a partir da configuração inicial para chegar ao estado objetivo. No caso do quebra-cabeça com peças deslizantes existem dois tipos de resultados possíveis. Um circular e outro linear. O estado objetivo depende da configuração inicial. O f(n) representa a função heurística mais o nível da árvore naquele momento. A heurística utilizada é a soma da distância de manhattan para cada peça.
 	
-=== Opções extras ===
+### Opções extras
 
 No problema das oito rainhas algumas opções podem ser feitas. A quantidade de iterações máximas é de 10000 e a probabilidade de mutação é de 50%, mas isso pode ser alterado com a opção -i e -p
 

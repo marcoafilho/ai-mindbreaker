@@ -5,10 +5,11 @@ module MindBreaker
     attr_accessor :input, :output
     attr_accessor :agent, :problem
     
-    def initialize(input, output, problem)
+    def initialize(input, output, problem, options = {})
       @input = input
       @output = output
       @problem = problem
+      @options = options
     end
     
     def start
@@ -34,7 +35,7 @@ module MindBreaker
     def create_agent
       @agent = case problem
       when "SlidingPuzzle" then agent_class.new(new_problem)
-      when "EightQueens"   then agent_class.new(4.times.map{ new_problem }, gets_max_iterations)
+      when "EightQueens"   then agent_class.new(4.times.map{ new_problem }, @options)
       end
     end
         
@@ -100,7 +101,7 @@ module MindBreaker
     
     def print_population
       output.puts "Last population:"
-      agent.population.each do |individual|
+      agent.problem.each do |individual|
         print_goal(individual)
         output.printf("P(i) = %3.2f\%\n", individual.probability * 100)
         print_chessboard(individual)

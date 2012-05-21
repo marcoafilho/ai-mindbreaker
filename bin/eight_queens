@@ -2,10 +2,13 @@
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require "mind_breaker"
 
-# Handle the args here
-# ARGV.each do |arg|
-#   puts arg
-# end
+options = {}
+ARGV.each do |arg|
+  case arg
+  when "-i" then options[:max_iterations] = ARGV[ARGV.index(arg) + 1].to_i
+  when "-p" then options[:probability] =  ARGV[ARGV.index(arg) + 1].to_f
+  end
+end
 
-app = MindBreaker::App.new(STDIN, STDOUT, "EightQueens")
+app = MindBreaker::App.new(STDIN, STDOUT, "EightQueens", options)
 app.run

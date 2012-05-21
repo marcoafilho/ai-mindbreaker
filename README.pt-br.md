@@ -154,7 +154,7 @@ Para uma população definida apenas com a entrada acima conseguimos a seguinte 
 	|........|
 	*--------*
 	
-O estado objetivo é marcado com `=====GOAL=====' e o P(i) representa a probabilidade dele de acordo com a função fitness.
+O estado objetivo é marcado com `=====GOAL=====` e o P(i) representa a probabilidade dele de acordo com a função fitness.
 
 ### Quebra-cabeça com peças deslizantes
 

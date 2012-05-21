@@ -8,7 +8,4 @@ require "mind_breaker"
 # end
 
 app = MindBreaker::App.new(STDIN, STDOUT, "SlidingPuzzle")
-app.start
-app.greet
-app.create_agent
-app.agent.search.show_steps
+app.run

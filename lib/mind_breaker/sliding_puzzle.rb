@@ -19,7 +19,7 @@ module MindBreaker
       remaining_blocks(number).map{ |cmp_number| (number > cmp_number && cmp_number != 0) ? 1 : 0 }.sum
     end
             
-    def possible_actions(index = @state.index(0))
+    def possible_actions(index = @state.zero_index)
       horizontal_actions(index) + vertical_actions(index)
     end
                     

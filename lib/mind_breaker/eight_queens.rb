@@ -6,10 +6,14 @@ module MindBreaker
       28
     end
     
+    def goal?
+      @fitness == 28
+    end
+    
     # TODO Deixar esse método mais bonitinho!!!
     def fitness
       @fitness ||= goal - count_attackers
-    end    
+    end
 
     # TODO Deixar esse método mais bonitinho!!!
     def count_attackers

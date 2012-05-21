@@ -1,6 +1,5 @@
 require "utils"
 require "mind_breaker/app"
-require "mind_breaker/logger"
 require "mind_breaker/agent"
 require "mind_breaker/eight_queens_agent"
 require "mind_breaker/sliding_puzzle_agent"

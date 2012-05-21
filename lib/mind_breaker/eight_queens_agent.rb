@@ -3,7 +3,7 @@ module MindBreaker
     attr_reader :max_iterations
     attr_accessor :population
     
-    def initialize(population, max_iterations = 500)
+    def initialize(population, max_iterations = 10000)
       @population = population
       @max_iterations = max_iterations
     end
@@ -13,14 +13,13 @@ module MindBreaker
       iteration = 0
       
       while iteration != max_iterations && !goal
-        puts "#{iteration}: #{@population.map{|i| i.state.inspect + i.probability.to_s}.inspect}"
         crossover
         mutation
         fitness_probability
         iteration += 1
       end
       
-      puts goal.state.inspect if goal
+      goal
     end
         
     def goal

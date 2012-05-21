@@ -15,32 +15,13 @@ module MindBreaker
         @children.push Node.new(attrs.merge(parent: self, depth: @depth + 1))
       end
       
-      def show_steps
-        grid = build_grid
-        grid.reverse.each do |node|
-          show(node)
-        end
+      def chosen_path
+        node_path.reverse
       end
       
-      def build_grid
-        steps = [self]
-        node = self
-        @depth.times do
-          steps << node.parent
-          node = node.parent
-        end
-        
-        steps
-      end
-      
-      def show(node)
-        print " - - - \n"
-        node.problem.state.each do |block|
-          print "|" + block.to_s
-          print "|\n" if node.problem.state.index(block) % 3 == 2
-        end
-        print " - - - \n"
-      end
+      def node_path(node = self)
+        node.parent ? [node] + node_path(node.parent) : [node]
+      end      
     end
   end
 end

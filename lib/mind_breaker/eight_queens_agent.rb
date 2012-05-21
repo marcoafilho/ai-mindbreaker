@@ -4,7 +4,7 @@ module MindBreaker
     
     def initialize(problem, options = {})
       super(problem, options)
-      @max_iterations ||= 10000
+      @max_iterations ||= 25000
       @probability ||= 0.5
     end
         

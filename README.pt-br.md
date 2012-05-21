@@ -87,9 +87,9 @@ No Unix:
 	
 No Windows:
 
-	Clique duplo em bin\eight_queens.bat
+	: bin\eight_queens.bat
 	
-A entrada é a população inicial (4 configurações de tabuleiro) onde o algoritmo genético será aplicado. Uma configuração é representada por um conjunto de caracteres que varia de 0-7 e podem ser dispostos de qualquer maneira. Cada caracter representa a linha em que a rainha está disposta. Exemplo:
+A entrada é uma população gerada aleatoriamente (4 configurações de tabuleiro) onde o algoritmo genético será aplicado. Uma configuração é representada por um conjunto de caracteres que varia de 0-7 e podem ser dispostos de qualquer maneira. Cada caracter representa a linha em que a rainha está disposta e a sua posição na configuração a coluna. Exemplo:
 
 	00624713
 	
@@ -161,7 +161,7 @@ No Unix:
 	
 No Windows:
 
-	Clique duplo em bin\sliding_puzzle.bat
+	: bin\sliding_puzzle.bat
 	
 A entrada do problema é baseada em uma configuração de 9 dígitos (0-8). Esse dígitos *não* podem se repetir. Exemplo:
 
@@ -221,11 +221,11 @@ A saída mostra todos os passos executados a partir da configuração inicial pa
 	
 ### Opções extras
 
-No problema das oito rainhas algumas opções podem ser feitas. A quantidade de iterações máximas é de 10000 e a probabilidade de mutação é de 50%, mas isso pode ser alterado com a opção -i e -p
+No problema das oito rainhas algumas opções podem ser feitas. A quantidade de iterações máximas é de 25000 e a probabilidade de mutação é de 50%, mas isso pode ser alterado com a opção -i e -p
 
-	$ruby bin/eight_queens -i 25000 -p 0.2
+	$ ruby bin/eight_queens -i 50000 -p 0.2
 	
-Isso fará com que a aplicação execute com uma quantidade máxima de iterações de 25000 e com uma probabilidade de mutação de 20%.
+Isso fará com que a aplicação execute com uma quantidade máxima de iterações de 50000 e com uma probabilidade de mutação de 20%.
 
 Licença
 -------

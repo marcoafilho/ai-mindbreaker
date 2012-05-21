@@ -2,6 +2,9 @@ module MindBreaker
   # This class is responsible for input/output and for the application flow.
   # It is the one that instantiates the proble and the smart agent.
   class App
+    SLIDING_PUZZLE = "SlidingPuzzle"
+    EIGHT_QUEENS = "EightQueens"
+    
     attr_accessor :input, :output
     attr_accessor :agent, :problem
     
@@ -34,8 +37,8 @@ module MindBreaker
     
     def create_agent
       @agent = case problem
-      when "SlidingPuzzle" then agent_class.new(new_problem)
-      when "EightQueens"   then agent_class.new(4.times.map{ new_problem }, @options)
+      when SLIDING_PUZZLE then agent_class.new(new_problem)
+      when EIGHT_QUEENS   then agent_class.new(4.times.map{ new_random_problem }, @options)
       end
     end
         
@@ -52,14 +55,15 @@ module MindBreaker
       greet
       create_agent
 
+      print_initial_configuration
       result
       output_search(agent.search)
     end
     
     def output_search(result)
       case problem
-      when "SlidingPuzzle" then output_sliding_puzzle(result)
-      when "EightQueens"   then output_eight_queens(result)
+      when SLIDING_PUZZLE then output_sliding_puzzle(result)
+      when EIGHT_QUEENS   then output_eight_queens(result)
       end
     end
         
@@ -70,6 +74,14 @@ module MindBreaker
     
     def new_problem
       problem_class.new(gets_configuration)
+    end
+    
+    def new_random_problem
+      problem_class.new(random_eight_queens)
+    end
+    
+    def random_eight_queens
+      8.times.collect{ (rand * 7).round }
     end
     
     def output_sliding_puzzle(result)
@@ -124,6 +136,12 @@ module MindBreaker
     
     def print_goal(individual)
       output.puts "=====GOAL=====" if individual.goal?
+    end
+    
+    def print_initial_configuration
+      agent.problem.each do |individual| 
+        output.puts(individual.state.join('')) if @problem == EIGHT_QUEENS
+      end
     end
     
     def print_head(number)

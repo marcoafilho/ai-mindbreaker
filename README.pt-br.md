@@ -26,9 +26,6 @@ Dentre os problemas a serem resolvidos estão:
 			que elas não devem se tocar na horizontal, vertical e diagonal. Para esse tipo de problema existem 92 soluções.
 		</p>
 		<p>
-			<img src="https://github.com/marcoafilho/ai-mindbreaker/raw/master/resources/CHESS.png" alt="8 queens solved" /> 
-		</p>
-		<p>
 			Usaremos algoritmos genéticos para encontrarmos uma solução de um forma mais rápida
 		</p>
 	</dd>

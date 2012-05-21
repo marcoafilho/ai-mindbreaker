@@ -26,6 +26,9 @@ Dentre os problemas a serem resolvidos estão:
 			que elas não devem se tocar na horizontal, vertical e diagonal. Para esse tipo de problema existem 92 soluções.
 		</p>
 		<p>
+			<img src="https://github.com/marcoafilho/ai-mindbreaker/raw/master/resources/CHESS.png" alt="8 queens solved" /> 
+		</p>
+		<p>
 			Usaremos algoritmos genéticos para encontrarmos uma solução de um forma mais rápida
 		</p>
 	</dd>
@@ -79,7 +82,7 @@ Uso
 ---
 O projeto oferece um binário para *NIX e Windows.
 
-=== Oito damas ===
+### Oito damas
 
 No Unix:
 
@@ -153,7 +156,7 @@ Para uma população definida apenas com a entrada acima conseguimos a seguinte 
 	
 O estado objetivo é marcado com `=====GOAL=====' e o P(i) representa a probabilidade dele de acordo com a função fitness.
 
-=== Quebra-cabeça com peças deslizantes ===
+### Quebra-cabeça com peças deslizantes
 
 No Unix:
 

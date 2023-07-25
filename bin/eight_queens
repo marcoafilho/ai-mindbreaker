@@ -1,14 +1,16 @@
 #!/usr/bin/env ruby
-$LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
-require "mind_breaker"
+# frozen_string_literal: true
+
+$LOAD_PATH.unshift File.expand_path('../lib', __dir__)
+require 'mind_breaker'
 
 options = {}
 ARGV.each do |arg|
   case arg
-  when "-i" then options[:max_iterations] = ARGV[ARGV.index(arg) + 1].to_i
-  when "-p" then options[:probability] =  ARGV[ARGV.index(arg) + 1].to_f
+  when '-i' then options[:max_iterations] = ARGV[ARGV.index(arg) + 1].to_i
+  when '-p' then options[:probability] =  ARGV[ARGV.index(arg) + 1].to_f
   end
 end
 
-app = MindBreaker::App.new(STDIN, STDOUT, "EightQueens", options)
+app = MindBreaker::App.new($stdin, $stdout, 'EightQueens', options)
 app.run

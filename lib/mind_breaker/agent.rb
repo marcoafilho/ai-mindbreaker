@@ -1,7 +1,7 @@
 module MindBreaker
   class Agent
     attr_accessor :goal, :problem
-    
+
     def initialize(problem, options = {})
       @problem = problem
       start_problem
@@ -9,7 +9,7 @@ module MindBreaker
         send("#{key}=".to_sym, value)
       end
     end
-    
+
     def start_problem
       @start_problem ||= @problem
     end

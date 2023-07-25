@@ -1,2 +1,2 @@
-require "utils/array"
-require "utils/string"
+require 'utils/array'
+require 'utils/string'
